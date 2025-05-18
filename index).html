@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>🌹 Sude İçin Gül</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    svg {
+      width: 200px;
+      height: 300px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    svg:hover {
+      transform: scale(1.05);
+    }
+
+    .stem {
+      stroke: #2e7d32;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: growStem 1s ease forwards;
+    }
+
+    .leaf {
+      fill: #388e3c;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: leafGrow 0.8s ease forwards;
+    }
+
+    .leaf1 { animation-delay: 1s; }
+    .leaf2 { animation-delay: 1.2s; }
+
+    .petal {
+      fill: #e53935;
+      opacity: 0;
+      transform: scale(0.5);
+      transform-origin: center;
+      animation: bloom 0.6s ease forwards;
+    }
+
+    .p1 { animation-delay: 1.4s; }
+    .p2 { animation-delay: 1.6s; }
+    .p3 { animation-delay: 1.8s; }
+
+    @keyframes growStem {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes leafGrow {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bloom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #b71c1c;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      max-width: 300px;
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+    .note {
+      text-align: center;
+      font-size: 16px;
+      color: #b71c1c;
+      margin-bottom: 10px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body>
+      <div class="note">Notu görmek için gülün üzerine tıklayarak hediyemi kabul edebilirsin</div>
+
+<svg id="rose" viewBox="0 0 120 200">
+  <!-- Sap -->
+  <line class="stem" x1="60" y1="80" x2="60" y2="180" />
+
+  <!-- Yapraklar -->
+  <path class="leaf leaf1" d="M60 120 Q50 110, 40 130 Q50 150, 60 140 Z" />
+  <path class="leaf leaf2" d="M60 130 Q70 120, 80 140 Q70 150, 60 140 Z" />
+
+  <!-- Gül yaprakları -->
+<!-- Gül yaprakları (y koordinatları toplam 60 birim yukarı alındı) -->
+<path class="petal petal1" fill="#e91e63" stroke="#b71c1c" stroke-width="1"
+      d="M60 100 C30 80, 30 40, 60 30 C90 60, 90 90, 60 100 Z" />
+<path class="petal petal2" fill="#d81b60" stroke="#a31148" stroke-width="1"
+      d="M60 100 C90 80, 90 40, 60 30 C30 60, 30 90, 60 100 Z" />
+<path class="petal petal3" fill="#c2185b" stroke="#8b0042" stroke-width="1"
+      d="M60 70 C40 60, 35 40, 60 30 C80 50, 80 60, 60 70 Z" />
+<path class="petal petal4" fill="#ad1457" stroke="#780036" stroke-width="1"
+      d="M60 70 C80 60, 85 40, 60 30 C40 50, 40 60, 60 70 Z" />
+<path class="petal petal5" fill="#880e4f" stroke="#610032" stroke-width="1"
+      d="M60 55 C50 50, 50 40, 60 30 C70 50, 70 55, 60 55 Z" />
+<path class="petal petal6" fill="#b71c1c" stroke="#7f0018" stroke-width="1"
+      d="M60 55 C70 50, 70 40, 60 30 C50 50, 50 55, 60 55 Z" />
+<path class="petal petal7" fill="#e53935" stroke="#8b0000" stroke-width="1"
+      d="M60 45 C55 40, 55 35, 60 30 C65 40, 65 45, 60 45 Z" />
+<path class="petal petal8" fill="#c62828" stroke="#7a0000" stroke-width="1"
+      d="M60 45 C65 40, 65 35, 60 30 C55 40, 55 45, 60 45 Z" />
+
+</svg>
+
+<div id="message" class="message">
+  Sude, bu sen kadar güzel gülü kabul ettiğin için teşekkür ederim. 🌹
+</div>
+
+<script>
+  const rose = document.getElementById("rose");
+  const message = document.getElementById("message");
+
+  rose.addEventListener("click", () => {
+    message.classList.add("show");
+  });
+</script>
+
+</body>
+</html>
